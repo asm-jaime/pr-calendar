@@ -1,0 +1,26 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 100%;
+}
+
+#table-wrapper {
+	padding: 0 15px;
+}
+
+.calendar {
+	width: 100%;
+}
+
+.calendar th {
+	text-align: left;
+	padding: 5px;
+}
+
+.calendar tbody th {
+	border: 1px solid grey;
+}
+

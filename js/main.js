@@ -1,17 +1,27 @@
-'use strict'
+;(function (window){
+	
+	var defaults = {
+		minDate: new Date('1-1-1960'),
+		maxDate: new Date('1-1-2060')
+	}
 
-var calendarHeight = function() {
-	var dayNamesHeight 	= document.getElementById('day-names').offsetHeight;
-	var daysRow 		= document.getElementsByClassName('days-row');
-	var viewPortHeight 	= Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	var wrapPadding		= document.getElementById('table-wrapper').style.paddingTop;
-	for(var i = 0; i < daysRow.length; i++) {
-	    daysRow[i].style.height = (viewPortHeight - dayNamesHeight - wrapPadding) / daysRow.length + 'px';
+	/**
+	 * @constructor
+	 * 
+	 * @param {DOMElement} element - элемент, в котором будет рендериться 
+	 *                               календарь
+	 */
+	var Calendar = function (element) {
+		this.element = element;
+	}
+
+	/**
+	 * @public
+	 * 
+	 * @return {Object} options - опции, с которыми будет рендериться календарь
+	 */
+	Calendar.prototype.render = function (options) {
+		// TODO: Объединять defaults и options
 	};
-};
 
-var windowResize = window.onresize = function(event) {
-    calendarHeight();
-};
-
-calendarHeight();
+})(window)

@@ -1,5 +1,7 @@
+
+
+
 ;(function (window){
-	
 
 	var defaults = {
 		minDate: new Date('1-1-1960'),
@@ -9,8 +11,8 @@
 
 	/**
 	 * @constructor
-	 * 
-	 * @param {DOMElement} element - элемент, в котором будет рендериться 
+	 *
+	 * @param {DOMElement} element - элемент, в котором будет рендериться
 	 *                               календарь
 	 */
 	var Calendar = function (element, options) {
@@ -22,7 +24,7 @@
 	/**
 	 * @public
 	 * 
-	 * @return {Object} 
+	 * @return {Object}
 	 */
 	Calendar.prototype.render = function (mode) {
 		// Метод должен вставлять в this.element
@@ -47,8 +49,33 @@
 	 * Строит таблицу по указанным данным
 	 * 
 	 * @param  {Object} data 
+	 * @return {DOMElement} - таблица
+	 */
+	function renderMonth (date) {
+		function addDay(_day, _isCurrentMonth, _date){
+			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
+		}
+
+		var month = date.getMonth();
+		var year = date.getFullYear();
+		date = new Date(year, month, 1);
+		var results = [];
+		while(date.getMonth() == month){
+			var day = date.getDate();
+			var dayInfo = [addDay(day, true, new Date(year, month, day))];
+			results.push(dayInfo);
+			date.setDate(date.getDate() + 1);
+		}
+		return buildTable(results);
+	}
+
+
+	/**
+	 * Строит таблицу по указанным данным
+	 *
+	 * @param  {Object} data
 	 * @return {DOMElement} - возвращает элемент с
-	 *                        таблицей      
+	 *                        таблицей
 	 *
 	 * @example
 	 * Пример данных в data:

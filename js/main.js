@@ -35,17 +35,6 @@
 
 
 	/**
-	 * Рендерит таблицу для режима "месяц"
-	 * 
-	 * @return {DOMElement} - таблица
-	 */
-	function renderMonth () {
-		var data = [];
-
-		return buildTable(data);
-	}
-
-	/**
 	 * Строит таблицу по указанным данным
 	 * 
 	 * @param  {Object} data 

@@ -36,23 +36,36 @@
 
 	/**
 	 * Строит таблицу по указанным данным
-	 * 
-	 * @param  {Object} data 
+	 *
+	 * @param  {Object} date
 	 * @return {DOMElement} - таблица
 	 */
 	function renderMonth (date) {
 		function addDay(_day, _isCurrentMonth, _date){
 			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
 		}
+		function dayNumber(date) {
+			var day = date.getDay();
+			if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
+			return day - 1;
+		}
 
 		var month = date.getMonth();
 		var year = date.getFullYear();
 		date = new Date(year, month, 1);
 		var results = [];
+		var firsttime = true;
 		while(date.getMonth() == month){
 			var day = date.getDate();
-			var dayInfo = [addDay(day, true, new Date(year, month, day))];
-			results.push(dayInfo);
+			if(dayNumber(date) == 0 || firsttime){
+				var dayInfo = [addDay(day, true, new Date(year, month, day))];
+				results.push(dayInfo);
+				firsttime = false;
+			}
+			else{
+				var dayInfo = addDay(day, true, new Date(year, month, day));
+				results[results.length-1].push(dayInfo);
+			}
 			date.setDate(date.getDate() + 1);
 		}
 		return buildTable(results);

@@ -24,14 +24,3 @@ html, body {
 	border: 1px solid grey;
 }
 
-/* remove it */
-
-td {
-	border: 1px solid gray;
-	width: 100px;
-	height: 100px;
-}
-
-table {
-	border-collapse: collapse;
-}

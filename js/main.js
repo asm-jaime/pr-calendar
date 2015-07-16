@@ -40,8 +40,7 @@
 	 *
 	 * @return {DOMElement} - таблица
 	 */
-
-	function renderMonth (date) {
+	Calendar.prototype.renderMonth = function(date){
 		function addDay(_day, _isCurrentMonth, _date){
 			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
 		}
@@ -57,7 +56,8 @@
 			date.setDate(date.getDate() + 1);
 		}
 		return buildTable(results);
-	}
+	};
+
 
 	/**
 	 * Строит таблицу по указанным данным

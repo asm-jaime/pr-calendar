@@ -30,7 +30,7 @@
 			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
 		}
 		var month = data.getMonth();
-		var year = data.getYear();
+		var year = data.getFullYear();
 		data = new Date(year, month, 1);
 		var results = [];
 		while(data.getMonth() == month){

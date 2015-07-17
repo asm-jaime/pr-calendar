@@ -52,10 +52,8 @@
 		function getLastWeekPrevMonth(date){
 			var _d = new Date(date.getFullYear(), date.getMonth(), 0);
 			var lastWeek = [];
-			console.log("test");
 			for(var i = dayNumber(_d); i == dayNumber(_d); i--){
 				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
-				console.log(i, "         ", dayNumber(_d));
 				_d.setDate(_d.getDate() - 1);
 			}
 			return lastWeek;
@@ -63,10 +61,8 @@
 		function getFirstWeekNextMonth(date){
 			var _d = new Date(date.getFullYear(), date.getMonth() + 1, 1);
 			var lastWeek = [];
-			console.log("test");
 			for(var i = dayNumber(_d); i == dayNumber(_d); i++){
 				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
-				console.log(i, "         ", dayNumber(_d));
 				_d.setDate(_d.getDate() + 1);
 			}
 			return lastWeek;

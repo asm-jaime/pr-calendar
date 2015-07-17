@@ -49,7 +49,30 @@
 			if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
 			return day - 1;
 		}
-
+		function getLastWeekPrevMonth(date){
+			var _d = new Date(date.getFullYear(), date.getMonth(), 0);
+			var lastWeek = [];
+			console.log("test");
+			for(var i = dayNumber(_d); i == dayNumber(_d); i--){
+				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
+				console.log(i, "         ", dayNumber(_d));
+				_d.setDate(_d.getDate() - 1);
+			}
+			return lastWeek;
+		}
+		function getFirstWeekNextMonth(date){
+			var _d = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+			var lastWeek = [];
+			console.log("test");
+			for(var i = dayNumber(_d); i == dayNumber(_d); i++){
+				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
+				console.log(i, "         ", dayNumber(_d));
+				_d.setDate(_d.getDate() + 1);
+			}
+			return lastWeek;
+		}
+		var _prev = getLastWeekPrevMonth(date);
+		var _next = getFirstWeekNextMonth(date);
 		var month = date.getMonth();
 		var year = date.getFullYear();
 		date = new Date(year, month, 1);
@@ -68,6 +91,12 @@
 			}
 			date.setDate(date.getDate() + 1);
 		}
+		_prev.map(function(a){
+			results[0].unshift(a);
+		});
+		_next.map(function(a){
+			results[results.length - 1].push(a);
+		});
 		return buildTable(results);
 	}
 

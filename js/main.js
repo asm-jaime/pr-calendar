@@ -86,7 +86,7 @@
 		return lastWeek;
 	}
 	/**
-	 * Строит таблицу по указанным данным
+	 * Строит таблицу по указанным данным.
 	 *
 	 * @param  {Object} date
 	 * @return {DOMElement} - таблица

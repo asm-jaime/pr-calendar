@@ -31,6 +31,7 @@
 		// код таблицы в которой число строк равно
 		// числу недель в месяце, а число столбцов
 		// равно числу дней в неделе.
+		this.element.appendChild(renderMonth(mode));
 	};
 
 
@@ -119,46 +120,34 @@
 	 * ]
 	 */
 	function buildTable (data) {
-		var days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 		var table = document.createElement('table');
 		table.appendChild(document.createElement('thead'));
 		table.lastElementChild.appendChild(document.createElement('tr'));
 		var HeadTr = table.lastElementChild.lastElementChild;
 		
-		for (var j = 0; j < 7; j++) {
+		for (var j = 0; j < days.length; j++) {
 			HeadTr.appendChild(document.createElement('td'));
 			HeadTr.lastElementChild.appendChild(document.createTextNode(days[j]));
 		};
-		for (var i = 0; i < 5; i++) {
+
+		for (var i = 0; i < data.length; i++) {
 			table.appendChild(document.createElement('tr'));
-			for (var j = 0; j < 7; j++) {
-				table.lastElementChild.appendChild(document.createElement('td'));
+			for (var j = 0; j < days.length; j++) {
+				var curTr = table.lastElementChild;
+				curTr.appendChild(document.createElement('td'));
+				curTr.lastElementChild.appendChild(document.createTextNode(data[i][j].day));
+				if (data[i][j].isCurrentMonth) {
+					curTr.lastElementChild.classList.add('days-current-month')
+				}
 			};
 		};
-
-		var initialDay = data[0][0].date.getDay();
-		var dayIndex = 0;
-		for (var j = initialDay; j <= 6; j++) {
-			table.children[1].children[j].appendChild(document.createTextNode(data[dayIndex][0].day));
-			dayIndex++;
-		};
-
-		var rowIndex = 2;
-		var tr = table.children[rowIndex];
-		while (dayIndex < data.length) {
-			var td = tr.children[0];
-			while (td && (dayIndex < data.length)) {
-				td.appendChild(document.createTextNode(data[dayIndex][0].day));
-				td = td.nextSibling;
-				dayIndex++;
-			}
-			rowIndex++;
-			tr = table.children[rowIndex];
-		}
 		return table;
-
 	};
 
 	window.Calendar = Calendar;
 
 })(window);
+
+var newCalendar = new Calendar(document.querySelector('.container'));
+newCalendar.render(new Date);

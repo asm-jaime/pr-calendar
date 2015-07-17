@@ -35,3 +35,7 @@ td {
 table {
 	border-collapse: collapse;
 }
+
+.days-current-month {
+	font-weight: bold;
+}

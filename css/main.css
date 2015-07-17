@@ -130,24 +130,6 @@ img {
 
     margin: 5px 0 0;
 }
-.task {
-    line-height: 1.42857143;
-
-    overflow: hidden;
-
-    max-width: 100%;
-    margin: 2px 5px 0;
-    padding: 0 5px;
-
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.task_not_start {
-    margin-left: 0;
-}
-.task_not_end {
-    margin-right: 0;
-}
 .month {
     font-size: 14px;
     font-size: .875rem;
@@ -264,4 +246,22 @@ img {
     text-decoration: underline;
 
     color: #008bff;
+}
+.task {
+    line-height: 1.42857143;
+
+    overflow: hidden;
+
+    max-width: 100%;
+    margin: 2px 5px 0;
+    padding: 0 5px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.task_not_start {
+    margin-left: 0;
+}
+.task_not_end {
+    margin-right: 0;
 }

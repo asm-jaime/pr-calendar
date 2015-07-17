@@ -1,7 +1,7 @@
 
 
 
-;(function (window){
+(function (window) {
 
 	var defaults = {
 		minDate: new Date('1-1-1960'),
@@ -27,11 +27,19 @@
 	 * @return {Object}
 	 */
 	Calendar.prototype.render = function (mode) {
-		// Метод должен вставлять в this.element
-		// код таблицы в которой число строк равно
-		// числу недель в месяце, а число столбцов
-		// равно числу дней в неделе.
-		this.element.appendChild(renderMonth(mode));
+		this.element.appendChild(this._renderMonth(mode));
+	};
+
+	/**
+	 * Возвращает число недель в месяце
+	 * 
+	 * @param  {Date} date
+	 * @param  {0|1} firstDayOfTheWeek - первый день недели (0 - ВС, 1 - ПН)
+	 * @return {Number} - число дней в месяце
+	 */
+	Calendar.prototype._getWeeksInMonth = function (date, firstDayOfTheWeek) {
+		if (firstDayOfTheWeek !== 0 && firstDayOfTheWeek !== 1)
+			throw new Error("Incorrect firstDayOfTheWeek");
 	};
 
 
@@ -41,7 +49,7 @@
 	 * @param  {Object} date
 	 * @return {DOMElement} - таблица
 	 */
-	function renderMonth (date) {
+	Calendar.prototype._renderMonth = function (date) {
 		function addDay(_day, _isCurrentMonth, _date){
 			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
 		}
@@ -95,7 +103,7 @@
 			results[results.length - 1].push(a);
 		});
 		return buildTable(results);
-	}
+	};
 
 
 	/**
@@ -119,7 +127,7 @@
 	 *   ]
 	 * ]
 	 */
-	function buildTable (data) {
+	Calendar.prototype.buildTable = function (data) {
 		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 		var table = document.createElement('table');
 		table.appendChild(document.createElement('thead'));
@@ -146,8 +154,9 @@
 	};
 
 	window.Calendar = Calendar;
+	
+	if (typeof exports != 'undefined') {
+		exports.Calendar = Calendar;
+	}
 
-})(window);
-
-var newCalendar = new Calendar(document.querySelector('.container'));
-newCalendar.render(new Date);
+})(this);

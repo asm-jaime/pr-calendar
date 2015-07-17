@@ -1,26 +1,267 @@
-html, body {
-	margin: 0;
-	padding: 0;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
-
-.container {
-	width: 100%;
+img,
+embed,
+object,
+video {
+    max-width: 100%;
 }
+html {
+    font-size: 16px;
 
-#table-wrapper {
-	padding: 0 15px;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
 }
+body {
+    margin: 0;
+}
+img {
+    border: 0;
+}
+.app {
+    font-family: sans-serif;
 
+    width: 70%;
+    margin: 0 auto;
+}
+.button {
+    font-family: inherit;
+    font-size: 14px;
+    font-size: .875rem;
+    line-height: 30px;
+
+    position: relative;
+
+    display: inline-block;
+    overflow: visible;
+
+    margin: 0;
+    padding: 0;
+
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    text-transform: none;
+
+    color: inherit;
+    border: 0;
+    outline: 0;
+    background: none;
+
+    -webkit-appearance: none;
+}
+.button::-moz-focus-inner {
+    padding: 0;
+
+    border: 0;
+}
+.button:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.button_hovered:before,
+.button:hover:before {
+    border-color: #aeaeae;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+.button_pressed:before,
+.button:active:before {
+    background-color: #f7f7f7;
+}
+.button_disabled {
+    cursor: default;
+
+    color: #aeaeae;
+}
+.button_disabled:before,
+.button_disabled:hover:before,
+.button_disabled:active:before {
+    border-color: #ccc;
+    background-color: #eee;
+    box-shadow: none;
+}
+.button__text {
+    position: relative;
+    top: -1px;
+
+    display: inline-block;
+    overflow: hidden;
+
+    padding: 0 14px;
+
+    vertical-align: top;
+    text-overflow: ellipsis;
+}
 .calendar {
-	width: 100%;
-}
+    font-size: 14px;
+    font-size: .875rem;
 
-.calendar th {
-	text-align: left;
-	padding: 5px;
+    margin: 20px 0 0;
 }
-
-.calendar tbody th {
-	border: 1px solid grey;
+.calendar__header {
+    padding: 0 0 20px;
 }
+.calendar__nav,
+.calendar__title {
+    position: relative;
 
+    display: inline-block;
+
+    vertical-align: top;
+}
+.calendar__nav {
+    margin: 0 20px 0 0;
+}
+.calendar__title {
+    font-size: 1.28571429em;
+    font-weight: bold;
+
+    margin: 5px 0 0;
+}
+.month {
+    font-size: 14px;
+    font-size: .875rem;
+}
+.month__header {
+    width: 100%;
+
+    table-layout: fixed;
+}
+.month__dayname {
+    padding: 0 5px 5px;
+
+    text-align: right;
+}
+.month__grid {
+    height: 660px;
+    min-height: 300px;
+
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: #ddd;
+}
+.month__row {
+    position: relative;
+
+    overflow: hidden;
+
+    height: 20%;
+}
+.month__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    table-layout: fixed;
+    border-spacing: 0;
+}
+.month__bg-cell {
+    padding: 0;
+
+    border-left: 1px solid #ddd;
+}
+.month__bg-cell_type_off {
+    background-color: #eee;
+}
+.month__cnt {
+    position: relative;
+
+    width: 100%;
+
+    table-layout: fixed;
+    border-spacing: 0;
+}
+.month__cnt-title {
+    padding: 5px 5px;
+
+    text-align: right;
+
+    border-top: 1px solid #ddd;
+}
+.month__row:first-child .month__cnt-title {
+    border-top: 0;
+}
+.month__cnt-day {
+    line-height: 28px;
+
+    position: relative;
+
+    display: inline-block;
+
+    width: 28px;
+
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+
+    color: inherit;
+    border-radius: 50%;
+    outline: 0;
+    background: transparent;
+}
+.month__cnt-day:hover {
+    background-color: #e8e8e8;
+}
+.month__cnt-day_type_off {
+    color: #bdbdbd;
+}
+.month__cnt-day_type_off:hover {
+    background-color: #fbfbfb;
+}
+.month__cnt-day_type_today {
+    color: #fff;
+    background-color: #008bff;
+}
+.month__cnt-day_type_today:hover {
+    background-color: #3ca6ff;
+}
+.month__cnt-item {
+    padding: 0;
+}
+.month__overlap {
+    font-size: .92857143em;
+
+    padding: 5px;
+
+    cursor: pointer;
+
+    color: #888;
+}
+.month__overlap:hover {
+    text-decoration: underline;
+
+    color: #008bff;
+}
+.task {
+    line-height: 1.42857143;
+
+    overflow: hidden;
+
+    max-width: 100%;
+    margin: 2px 5px 0;
+    padding: 0 5px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.task_not_start {
+    margin-left: 0;
+}
+.task_not_end {
+    margin-right: 0;
+}

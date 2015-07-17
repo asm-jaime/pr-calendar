@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Календарь</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:700,400&amp;subset=latin,cyrillic">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="calendar">
+            <div class="calendar__header">
+                <div class="calendar__nav">
+                    <button class="button button_disabled">
+                        <span class="button__text">Сегодня</span>
+                    </button>
+                    <button class="button">
+                        <span class="button__text">&#8592;</span>
+                    </button>
+                    <button class="button">
+                        <span class="button__text">&#8594;</span>
+                    </button>
+                </div>
+                <div class="calendar__title">Июль 2015</div>
+            </div>
+            <div class="month">
+                <table class="month__header">
+                    <tbody>
+                        <tr>
+                            <th class="month__dayname">ПН</th>
+                            <th class="month__dayname">ВТ</th>
+                            <th class="month__dayname">СР</th>
+                            <th class="month__dayname">ЧТ</th>
+                            <th class="month__dayname">ПТ</th>
+                            <th class="month__dayname">СБ</th>
+                            <th class="month__dayname">ВС</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="month__grid" id="grid">
+                    <div class="month__row">
+                        <table class="month__bg">
+                            <tbody>
+                                <tr>
+                                    <td class="month__bg-cell month__bg-cell_type_off"></td>
+                                    <td class="month__bg-cell month__bg-cell_type_off"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="month__cnt">
+                            <thead>
+                                <tr>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day month__cnt-day_type_off">29</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day month__cnt-day_type_off">30</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">1</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">2</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">3</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">4</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">5</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item">
+                                        <div class="task" style="background-color: #b8f2b2;">Independence Day</div>
+                                    </td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                                <tr>
+                                    <td class="month__cnt-item" colspan="2">
+                                        <div class="task" style="background-color: #b8f2b2;">Do something</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month__row">
+                        <table class="month__bg">
+                            <tbody>
+                                <tr>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="month__cnt">
+                            <thead>
+                                <tr>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">6</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">7</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">8</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">9</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">10</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">11</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">12</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month__row">
+                        <table class="month__bg">
+                            <tbody>
+                                <tr>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="month__cnt">
+                            <thead>
+                                <tr>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">13</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">14</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">15</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">16</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day month__cnt-day_type_today">17</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">18</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">19</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="month__cnt-item" rowspan="4"></td>
+                                    <td class="month__cnt-item" rowspan="4"></td>
+                                    <td class="month__cnt-item" colspan="4">
+                                        <div class="task" style="background-color: #b8f2b2;">Get dressed</div>
+                                    </td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                                <tr>
+                                    <td class="month__cnt-item" rowspan="3"></td>
+                                    <td class="month__cnt-item" colspan="4">
+                                        <div class="task task_not_end" style="background-color: #b8f2b2;">Feed the dog</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="month__cnt-item" rowspan="2"></td>
+                                    <td class="month__cnt-item" colspan="3">
+                                        <div class="task task_not_end" style="background-color: #b8f2b2;">Write about it in my blog</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="month__cnt-item">
+                                        <div class="month__overlap">+ еще 3</div>
+                                    </td>
+                                    <td class="month__cnt-item">
+                                        <div class="month__overlap">+ еще 1</div>
+                                    </td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month__row">
+                        <table class="month__bg">
+                            <tbody>
+                                <tr>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="month__cnt">
+                            <thead>
+                                <tr>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">20</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">21</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">22</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">23</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">24</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">25</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">26</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="month__cnt-item" colspan="2">
+                                        <div class="task task_not_start" style="background-color: #b8f2b2;">Feed the dog</div>
+                                    </td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                                <tr>
+                                    <td class="month__cnt-item">
+                                        <div class="task task_not_start" style="background-color: #b8f2b2;">Write about it in my blog</div>
+                                    </td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="month__row">
+                        <table class="month__bg">
+                            <tbody>
+                                <tr>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell"></td>
+                                    <td class="month__bg-cell month__bg-cell_type_off"></td>
+                                    <td class="month__bg-cell month__bg-cell_type_off"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="month__cnt">
+                            <thead>
+                                <tr>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">27</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">28</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">29</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">30</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day">31</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day month__cnt-day_type_off">1</a>
+                                    </th>
+                                    <th class="month__cnt-title">
+                                        <a href="#" class="month__cnt-day month__cnt-day_type_off">2</a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                    <td class="month__cnt-item"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

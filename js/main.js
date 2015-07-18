@@ -71,12 +71,12 @@
 	};
 
     Calendar.prototype._next = function(){
-        settings.currentDate += 1;
+        settings.currentDate.setMonth(settings.currentDate.getMonth() + 1);
         this.render();
     };
 
     Calendar.prototype._prev = function(){
-        settings.currentDate -= 1;
+        settings.currentDate.setMonth(settings.currentDate.getMonth() - 1);
         this.render();
     };
 

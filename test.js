@@ -52,7 +52,7 @@ describe('Calendar', function () {
         });
 
         it('should contain first day of the month', function () {
-            var data = new Calendar()._getMonthData(new Date('2016-2-1'), 1);
+            var data = new Calendar()._getMonthData(new Date('2015-3-1'), 1);
             should.equal(data[0][0].day, 23);
             should.equal(data[0][6].day, 1);
         });

@@ -6,8 +6,11 @@
 	var defaults = {
 		minDate: new Date('1-1-1960'),
 		maxDate: new Date('1-1-2060'),
+		firstDayOfTheWeek: 1,
 		currentDate: new Date()
 	};
+
+	var settings = {};
 
 	/**
 	 * @constructor
@@ -17,6 +20,14 @@
 	 */
 	var Calendar = function (element, options) {
 		this.element = element;
+		for (var key in defaults) {
+			settings[key] = defaults[key];
+		}
+
+		for (key in options) {
+			settings[key] = options[key];
+		}
+
 		return this;
 	};
 
@@ -28,6 +39,8 @@
 	 */
 	Calendar.prototype.render = function (mode) {
 		this.element.appendChild(this._renderMonth(mode));
+		var data = this._getMonthData(settings.currentDate, settings.firstDayOfTheWeek);
+		this._buildTable(data);
 	};
 
 	/**
@@ -210,7 +223,9 @@
 	window.Calendar = Calendar;
 	
 	if (typeof exports != 'undefined') {
-		exports.Calendar = Calendar;
+		exports = {
+			Calendar: Calendar
+		};
 	}
 
 })(this);

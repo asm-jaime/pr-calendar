@@ -43,12 +43,12 @@ describe('Calendar', function () {
             should(results).be.an.Array();
         });
 
-        it('should return array with 5 elements in July, 2016 if the first day of week is 0', function () {
-            should.equal(new Calendar()._getMonthData(new Date('2016-7-1'), 0).length, 5);
+        it('should return array with 6 elements in July, 2016 if the first day of week is 0', function () {
+            should.equal(new Calendar()._getMonthData(new Date('2016-7-1'), 0).length, 6);
         });
 
-        it('should return array with 6 elements in July, 2016 if the first day of week is 1', function () {
-            should.equal(new Calendar()._getMonthData(new Date('2016-7-1'), 1).length, 6);
+        it('should return array with 5 elements in July, 2016 if the first day of week is 1', function () {
+            should.equal(new Calendar()._getMonthData(new Date('2016-7-1'), 1).length, 5);
         });
 
         it('should contain first day of the month', function () {

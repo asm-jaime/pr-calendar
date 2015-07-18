@@ -8,7 +8,19 @@
 		maxDate: new Date('1-1-2060'),
 		firstDayOfTheWeek: 1,
 		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-		currentDate: new Date()
+		currentDate: new Date(),
+        selectors: {
+            dayName: 'pr-month__day-name',
+            gridRow: 'pr-month__grid-row',
+            background: 'pr-month__background',
+            cell: 'pr-month__cell',
+            cellTypeOf: 'pr-month__cell_type_of',
+            content: 'pr-month__content',
+            headerCell: 'pr-month__header-cell',
+            day: 'pr-month__day',
+            dayTypeOf: 'pr-month__day_type_off',
+            dataCell: 'pr-month__data-cell'
+        }
 	};
 
 	var settings = {};

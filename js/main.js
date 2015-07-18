@@ -207,7 +207,7 @@
 			dayNames = settings.dayNames.slice();
 		} else {
 			dayNames = settings.dayNames.slice(1);
-			dayNames.push(settings.dayNames[settings.dayNames.length - 1]);
+			dayNames.push(settings.dayNames[0]);
 		}
 
 		console.log(dayNames);

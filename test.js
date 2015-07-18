@@ -19,6 +19,15 @@ describe('Calendar', function () {
         it('should return 5 for July, 2016 if first day of week is 1', function () {
             should.equal(new Calendar()._getWeeksInMonth(new Date('2016-7-1'), 1), 5);
         });
+
+        it('should return 6 for August, 2015 if first day of week is 1', function () {
+            should.equal(new Calendar()._getWeeksInMonth(new Date('2015-8-1'), 1), 6);
+        });
+
+        it('should return 6 for August, 2015 if first day of week is 0', function () {
+            should.equal(new Calendar()._getWeeksInMonth(new Date('2015-8-1'), 0), 6);
+        });
+
     });
 
 

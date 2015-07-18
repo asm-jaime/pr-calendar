@@ -38,8 +38,20 @@
 	 * @return {Number} - число дней в месяце
 	 */
 	Calendar.prototype._getWeeksInMonth = function (date, firstDayOfTheWeek) {
-		if (firstDayOfTheWeek != 0 && firstDayOfTheWeek != 1)
+        function counterDays (day) {
+          if (day === 0) {return 7;}
+          return day;
+        }
+		if (firstDayOfTheWeek !== 0 && firstDayOfTheWeek != 1)
 			throw new Error("Incorrect firstDayOfTheWeek");
+		if (firstDayOfTheWeek == 1) {
+    		firstDayOfTheWeek = 0;
+  		} else { firstDayOfTheWeek = 1; }
+  		var firstMonthDay = (new Date(date.getFullYear(), date.getMonth(), 0 + firstDayOfTheWeek)).getDay();
+  		var lastMonthDay = (new Date(date.getFullYear(), date.getMonth() + 1, 0 + firstDayOfTheWeek)).getDay();
+  		var daysInMonth = (new Date(date.getFullYear(), date.getMonth() + 1, 0)).getDate();
+     	var used = firstMonthDay + (7 - counterDays(lastMonthDay)) + daysInMonth;
+  		return Math.ceil(used / 7);
 	};
 
 

@@ -70,9 +70,6 @@
 
 
 	Calendar.prototype._getMonthData = function (date, firstDayOfTheWeek) {
-		//function addDay(_day, _isCurrentMonth, _date){
-		//	return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
-		//}
 		//function dayNumber(date) {
 		//	var day = date.getDay();
 		//	if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
@@ -105,7 +102,11 @@
         for (var i = 0; i <  weeks; i++) {
             var week = [];
             for (var x = 0; x < 7; x++) {
-                week.push(currentDate.getDate());
+                week.push({
+                    day: currentDate.getDate(),
+                    isCurrentMonth: true ? currentDate.getMonth()==initMonth : false,
+                    date: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate())
+                });
                 currentDate.setDate(currentDate.getDate() + 1);
             }
             result.push(week);

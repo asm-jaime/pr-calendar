@@ -57,25 +57,47 @@
 
 
 	Calendar.prototype._getMonthData = function (date, firstDayOfTheWeek) {
-		function addDay(_day, _isCurrentMonth, _date){
-			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
-		}
-		function dayNumber(date) {
-			var day = date.getDay();
-			if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
-			return day - 1;
-		}
-		function getLastWeekPrevMonth(date){
-			var _d = new Date(date.getFullYear(), date.getMonth(), 0);
-			var lastWeek = [];
-			for(var i = dayNumber(_d); i == dayNumber(_d); i--){
-				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
-				_d.setDate(_d.getDate() - 1);
-			}
-			return lastWeek;
-		}
+		//function addDay(_day, _isCurrentMonth, _date){
+		//	return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
+		//}
+		//function dayNumber(date) {
+		//	var day = date.getDay();
+		//	if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
+		//	return day - 1;
+		//}
+		//function getLastWeekPrevMonth(date){
+		//	var _d = new Date(date.getFullYear(), date.getMonth(), 0);
+		//	var lastWeek = [];
+		//	for(var i = dayNumber(_d); i == dayNumber(_d); i--){
+		//		lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
+		//		_d.setDate(_d.getDate() - 1);
+		//	}
+		//	return lastWeek;
+		//}
+        //
+		//return lastWeek;
+        var weeks = this._getWeeksInMonth(date, firstDayOfTheWeek);
+        var result = [];
+        var initMonth = date.getMonth();
+        var currentDate = new Date(date.getFullYear(), date.getMonth(), 1);
+        var _s = currentDate.getDay();
+        if(currentDate.getDay()==0 && firstDayOfTheWeek == 0){
+            _s = 0;
+        }
+        else if(currentDate.getDay()==0&&firstDayOfTheWeek==1){
+            _s = 7;
+        }
+        currentDate.setDate(currentDate.getDate() - _s + firstDayOfTheWeek);
 
-		return lastWeek;
+        for (var i = 0; i <  weeks; i++) {
+            var week = [];
+            for (var x = 0; x < 7; x++) {
+                week.push(currentDate.getDate());
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+            result.push(week);
+        }
+        return result;
 	};
 
 	/**

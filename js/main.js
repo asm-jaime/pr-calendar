@@ -9,7 +9,7 @@
 		firstDayOfTheWeek: 1,
 		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
 		currentDate: new Date(),
-        selectors: {
+        classes: {
             dayName: 'pr-month__day-name',
             gridRow: 'pr-month__grid-row',
             background: 'pr-month__background',

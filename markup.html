@@ -26,321 +26,289 @@
         </div>
         <div class="pr-month">
             <table class="pr-month__header">
-                <tbody>
-                    <tr>
-                        <th class="pr-month__dayname">ПН</th>
-                        <th class="pr-month__dayname">ВТ</th>
-                        <th class="pr-month__dayname">СР</th>
-                        <th class="pr-month__dayname">ЧТ</th>
-                        <th class="pr-month__dayname">ПТ</th>
-                        <th class="pr-month__dayname">СБ</th>
-                        <th class="pr-month__dayname">ВС</th>
-                    </tr>
-                </tbody>
+                <tr class="pr-month__header-row">
+                    <th class="pr-month__day-name">ПН</th>
+                    <th class="pr-month__day-name">ВТ</th>
+                    <th class="pr-month__day-name">СР</th>
+                    <th class="pr-month__day-name">ЧТ</th>
+                    <th class="pr-month__day-name">ПТ</th>
+                    <th class="pr-month__day-name">СБ</th>
+                    <th class="pr-month__day-name">ВС</th>
+                </tr>
             </table>
             <div class="pr-month__grid" id="grid">
-                <div class="pr-month__row">
-                    <table class="pr-month__bg">
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__bg-cell pr-month__bg-cell_type_off"></td>
-                                <td class="pr-month__bg-cell pr-month__bg-cell_type_off"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                            </tr>
-                        </tbody>
+                <div class="pr-month__grid-row">
+                    <table class="pr-month__background">
+                        <tr class="pr-month__background-row">
+                            <td class="pr-month__cell pr-month__cell_type_off">&nbsp;</td>
+                            <td class="pr-month__cell pr-month__cell_type_off">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                        </tr>
                     </table>
-                    <table class="pr-month__cnt">
-                        <thead>
-                            <tr>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day pr-month__cnt-day_type_off">29</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day pr-month__cnt-day_type_off">30</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">1</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">2</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">3</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">4</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">5</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item">
-                                    <div class="pr-task" style="background-color: #b8f2b2;">Independence Day</div>
-                                </td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                            <tr>
-                                <td class="pr-month__cnt-item" colspan="2">
-                                    <div class="pr-task" style="background-color: #b8f2b2;">Do something</div>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <table class="pr-month__content">
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day pr-month__day_type_off">29</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day pr-month__day_type_off">30</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">1</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">2</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">3</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">4</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">5</a>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell">
+                                <div class="pr-task" style="background-color: #b8f2b2;">Independence Day</div>
+                            </td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" colspan="2">
+                                <div class="pr-task" style="background-color: #b8f2b2;">Do something</div>
+                            </td>
+                        </tr>
                     </table>
                 </div>
-                <div class="pr-month__row">
-                    <table class="pr-month__bg">
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                            </tr>
-                        </tbody>
+                <div class="pr-month__grid-row">
+                    <table class="pr-month__background">
+                        <tr class="pr-month__background-row">
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                        </tr>
                     </table>
-                    <table class="pr-month__cnt">
-                        <thead>
-                            <tr>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">6</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">7</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">8</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">9</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">10</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">11</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">12</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                        </tbody>
+                    <table class="pr-month__content">
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">6</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">7</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">8</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">9</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">10</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">11</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">12</a>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
                     </table>
                 </div>
-                <div class="pr-month__row">
-                    <table class="pr-month__bg">
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                            </tr>
-                        </tbody>
+                <div class="pr-month__grid-row">
+                    <table class="pr-month__background">
+                        <tr class="pr-month__background-row">
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                        </tr>
                     </table>
-                    <table class="pr-month__cnt">
-                        <thead>
-                            <tr>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">13</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">14</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">15</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">16</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day pr-month__cnt-day_type_today">17</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">18</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">19</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__cnt-item" rowspan="4"></td>
-                                <td class="pr-month__cnt-item" rowspan="4"></td>
-                                <td class="pr-month__cnt-item" colspan="4">
-                                    <div class="pr-task" style="background-color: #b8f2b2;">Get dressed</div>
-                                </td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                            <tr>
-                                <td class="pr-month__cnt-item" rowspan="3"></td>
-                                <td class="pr-month__cnt-item" colspan="4">
-                                    <div class="pr-task pr-task_not_end" style="background-color: #b8f2b2;">Feed the dog</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pr-month__cnt-item" rowspan="2"></td>
-                                <td class="pr-month__cnt-item" colspan="3">
-                                    <div class="pr-task pr-task_not_end" style="background-color: #b8f2b2;">Write about it in my blog</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pr-month__cnt-item">
-                                    <div class="pr-month__overlap">+ еще 3</div>
-                                </td>
-                                <td class="pr-month__cnt-item">
-                                    <div class="pr-month__overlap">+ еще 1</div>
-                                </td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                        </tbody>
+                    <table class="pr-month__content">
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">13</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">14</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">15</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">16</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day pr-month__day_type_today">17</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">18</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">19</a>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" rowspan="4">&nbsp;</td>
+                            <td class="pr-month__data-cell" rowspan="4">&nbsp;</td>
+                            <td class="pr-month__data-cell" colspan="4">
+                                <div class="pr-task" style="background-color: #b8f2b2;">Get dressed</div>
+                            </td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" rowspan="3">&nbsp;</td>
+                            <td class="pr-month__data-cell" colspan="4">
+                                <div class="pr-task pr-task_not_end" style="background-color: #b8f2b2;">Feed the dog</div>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" rowspan="2">&nbsp;</td>
+                            <td class="pr-month__data-cell" colspan="3">
+                                <div class="pr-task pr-task_not_end" style="background-color: #b8f2b2;">Write about it in my blog</div>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell">
+                                <div class="pr-month__overlap">+ еще 3</div>
+                            </td>
+                            <td class="pr-month__data-cell">
+                                <div class="pr-month__overlap">+ еще 1</div>
+                            </td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
                     </table>
                 </div>
-                <div class="pr-month__row">
-                    <table class="pr-month__bg">
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                            </tr>
-                        </tbody>
+                <div class="pr-month__grid-row">
+                    <table class="pr-month__background">
+                        <tr class="pr-month__background-row">
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                        </tr>
                     </table>
-                    <table class="pr-month__cnt">
-                        <thead>
-                            <tr>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">20</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">21</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">22</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">23</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">24</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">25</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">26</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__cnt-item" colspan="2">
-                                    <div class="pr-task pr-task_not_start" style="background-color: #b8f2b2;">Feed the dog</div>
-                                </td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                            <tr>
-                                <td class="pr-month__cnt-item">
-                                    <div class="pr-task pr-task_not_start" style="background-color: #b8f2b2;">Write about it in my blog</div>
-                                </td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                        </tbody>
+                    <table class="pr-month__content">
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">20</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">21</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">22</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">23</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">24</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">25</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">26</a>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell" colspan="2">
+                                <div class="pr-task pr-task_not_start" style="background-color: #b8f2b2;">Feed the dog</div>
+                            </td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell">
+                                <div class="pr-task pr-task_not_start" style="background-color: #b8f2b2;">Write about it in my blog</div>
+                            </td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
                     </table>
                 </div>
-                <div class="pr-month__row">
-                    <table class="pr-month__bg">
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell"></td>
-                                <td class="pr-month__bg-cell pr-month__bg-cell_type_off"></td>
-                                <td class="pr-month__bg-cell pr-month__bg-cell_type_off"></td>
-                            </tr>
-                        </tbody>
+                <div class="pr-month__grid-row">
+                    <table class="pr-month__background">
+                        <tr class="pr-month__bakcground-row">
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell">&nbsp;</td>
+                            <td class="pr-month__cell pr-month__cell_type_off">&nbsp;</td>
+                            <td class="pr-month__cell pr-month__cell_type_off">&nbsp;</td>
+                        </tr>
                     </table>
-                    <table class="pr-month__cnt">
-                        <thead>
-                            <tr>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">27</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">28</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">29</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">30</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day">31</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day pr-month__cnt-day_type_off">1</a>
-                                </th>
-                                <th class="pr-month__cnt-title">
-                                    <a href="#" class="pr-month__cnt-day pr-month__cnt-day_type_off">2</a>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                                <td class="pr-month__cnt-item"></td>
-                            </tr>
-                        </tbody>
+                    <table class="pr-month__content">
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">27</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">28</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">29</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">30</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day">31</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day pr-month__day_type_off">1</a>
+                            </td>
+                            <td class="pr-month__header-cell">
+                                <a href="#" class="pr-month__day pr-month__day_type_off">2</a>
+                            </td>
+                        </tr>
+                        <tr class="pr-month__content-row">
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                            <td class="pr-month__data-cell">&nbsp;</td>
+                        </tr>
                     </table>
                 </div>
             </div>

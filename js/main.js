@@ -105,7 +105,7 @@
             for (var x = 0; x < 7; x++) {
                 week.push({
                     day: currentDate.getDate(),
-                    isCurrentMonth: true ? currentDate.getMonth()==initMonth : false,
+                    isCurrentMonth: currentDate.getMonth()==initMonth,
                     date: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate())
                 });
                 currentDate.setDate(currentDate.getDate() + 1);
@@ -129,49 +129,7 @@
 		}
 		return lastWeek;
 	}
-	/**
-	 * Строит таблицу по указанным данным
-	 *
-	 * @param  {Object} date
-	 * @return {DOMElement} - таблица
-	 */
-	function renderMonth (date) {
-		var _prev = getLastWeekPrevMonth(date);
-		var _next = getFirstWeekNextMonth(date);
-		var month = date.getMonth();
-		var year = date.getFullYear();
-		date = new Date(year, month, 1);
-		var results = [];
-		var firsttime = true;
-		while(date.getMonth() == month){
-			var day = date.getDate();
-			if(dayNumber(date) == 0 || firsttime){
-				var dayInfo = [addDay(day, true, new Date(year, month, day))];
-				results.push(dayInfo);
-				firsttime = false;
-			}
-			else{
-				var dayInfo = addDay(day, true, new Date(year, month, day));
-				results[results.length-1].push(dayInfo);
-			}
-			date.setDate(date.getDate() + 1);
-		}
-		if(_prev.length <= 6){
-			_prev.map(function(a){
-				results[0].unshift(a);
-			});
-		}
 
-
-		if(_next.length <= 6){
-			_next.map(function(a){
-				results[results.length - 1].push(a);
-			});
-		}
-
-
-		return buildTable(results);
-	};
 
 
 
@@ -207,7 +165,7 @@
 			dayNames = settings.dayNames.slice();
 		} else {
 			dayNames = settings.dayNames.slice(1);
-			dayNames.push(settings.dayNames[settings.dayNames.length - 1]);
+			dayNames.push(settings.dayNames[0]);
 		}
 
 		console.log(dayNames);

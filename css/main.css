@@ -3,12 +3,6 @@
 *:after {
     box-sizing: border-box;
 }
-img,
-embed,
-object,
-video {
-    max-width: 100%;
-}
 html {
     font-size: 16px;
 
@@ -17,9 +11,6 @@ html {
 }
 body {
     margin: 0;
-}
-img {
-    border: 0;
 }
 .pr-button {
     font-family: inherit;

@@ -15,3 +15,13 @@
  ```
  test commit
  ```
+
+## Начало работы
+```
+npm install -g mocha
+npm install
+```
+Тесты запускаются из корня командой
+```
+mocha
+```

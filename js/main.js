@@ -129,49 +129,7 @@
 		}
 		return lastWeek;
 	}
-	/**
-	 * Строит таблицу по указанным данным
-	 *
-	 * @param  {Object} date
-	 * @return {DOMElement} - таблица
-	 */
-	function renderMonth (date) {
-		var _prev = getLastWeekPrevMonth(date);
-		var _next = getFirstWeekNextMonth(date);
-		var month = date.getMonth();
-		var year = date.getFullYear();
-		date = new Date(year, month, 1);
-		var results = [];
-		var firsttime = true;
-		while(date.getMonth() == month){
-			var day = date.getDate();
-			if(dayNumber(date) == 0 || firsttime){
-				var dayInfo = [addDay(day, true, new Date(year, month, day))];
-				results.push(dayInfo);
-				firsttime = false;
-			}
-			else{
-				var dayInfo = addDay(day, true, new Date(year, month, day));
-				results[results.length-1].push(dayInfo);
-			}
-			date.setDate(date.getDate() + 1);
-		}
-		if(_prev.length <= 6){
-			_prev.map(function(a){
-				results[0].unshift(a);
-			});
-		}
 
-
-		if(_next.length <= 6){
-			_next.map(function(a){
-				results[results.length - 1].push(a);
-			});
-		}
-
-
-		return buildTable(results);
-	};
 
 
 

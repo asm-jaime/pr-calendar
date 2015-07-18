@@ -40,8 +40,8 @@
 	 * @return {Object}
 	 */
 	Calendar.prototype.render = function () {
-        var dateToRender = "date" in settings ? settings.date : settings.currentDate;
-		var data = this._getMonthData(dateToRender, settings.firstDayOfTheWeek);
+		var data = this._getMonthData(settings.currentDate, settings.firstDayOfTheWeek);
+        this.element.innerHtml = '';
 		var table = this._buildTable(data);
 		this.element.appendChild(table);
 	};
@@ -70,10 +70,15 @@
   		return Math.ceil(used / 7);
 	};
 
-    Calendar.prototype._nextMonth = function(){
-
+    Calendar.prototype._next = function(){
+        settings.currentDate += 1;
+        this.render();
     };
 
+    Calendar.prototype._prev = function(){
+        settings.currentDate -= 1;
+        this.render();
+    };
 
 
 	Calendar.prototype._getMonthData = function (date, firstDayOfTheWeek) {

@@ -114,7 +114,7 @@
 
     table-layout: fixed;
 }
-.pr-month__dayname {
+.pr-month__day-name {
     padding: 0 5px 5px;
 
     text-align: right;
@@ -127,14 +127,14 @@
     border-style: solid;
     border-color: #ddd;
 }
-.pr-month__row {
+.pr-month__grid-row {
     position: relative;
 
     overflow: hidden;
 
     height: 20%;
 }
-.pr-month__bg {
+.pr-month__background {
     position: absolute;
     top: 0;
     left: 0;
@@ -145,15 +145,15 @@
     table-layout: fixed;
     border-spacing: 0;
 }
-.pr-month__bg-cell {
+.pr-month__cell {
     padding: 0;
 
     border-left: 1px solid #ddd;
 }
-.pr-month__bg-cell_type_off {
+.pr-month__cell_type_off {
     background-color: #eee;
 }
-.pr-month__cnt {
+.pr-month__content {
     position: relative;
 
     width: 100%;
@@ -161,17 +161,20 @@
     table-layout: fixed;
     border-spacing: 0;
 }
-.pr-month__cnt-title {
+.pr-month__header-cell {
     padding: 5px 5px;
 
     text-align: right;
 
     border-top: 1px solid #ddd;
 }
-.pr-month__row:first-child .pr-month__cnt-title {
+.pr-month__row:first-child .pr-month__header-cell {
     border-top: 0;
 }
-.pr-month__cnt-day {
+.pr-month__data-cell {
+    padding: 0;
+}
+.pr-month__day {
     line-height: 28px;
 
     position: relative;
@@ -189,24 +192,21 @@
     outline: 0;
     background: transparent;
 }
-.pr-month__cnt-day:hover {
+.pr-month__day:hover {
     background-color: #e8e8e8;
 }
-.pr-month__cnt-day_type_off {
+.pr-month__day_type_off {
     color: #bdbdbd;
 }
-.pr-month__cnt-day_type_off:hover {
+.pr-month__day_type_off:hover {
     background-color: #fbfbfb;
 }
-.pr-month__cnt-day_type_today {
+.pr-month__day_type_today {
     color: #fff;
     background-color: #008bff;
 }
-.pr-month__cnt-day_type_today:hover {
+.pr-month__day_type_today:hover {
     background-color: #3ca6ff;
-}
-.pr-month__cnt-item {
-    padding: 0;
 }
 .pr-month__overlap {
     font-size: .92857143em;

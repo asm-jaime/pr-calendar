@@ -38,18 +38,18 @@
 	 * @return {Number} - число дней в месяце
 	 */
 	Calendar.prototype._getWeeksInMonth = function (date, firstDayOfTheWeek) {
-		if (firstDayOfTheWeek !== 0 && firstDayOfTheWeek !== 1)
+		if (firstDayOfTheWeek != 0 && firstDayOfTheWeek != 1)
 			throw new Error("Incorrect firstDayOfTheWeek");
 	};
 
 
 	/**
-	 * Строит таблицу по указанным данным
+	 * Возвращает данные для таблицы
 	 *
 	 * @param  {Object} date
 	 * @return {DOMElement} - таблица
 	 */
-	Calendar.prototype._renderMonth = function (date) {
+	Calendar.prototype._getMonthData = function (date, firstDayOfTheWeek) {
 		function addDay(_day, _isCurrentMonth, _date){
 			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
 		}
@@ -127,7 +127,7 @@
 	 *   ]
 	 * ]
 	 */
-	Calendar.prototype.buildTable = function (data) {
+	Calendar.prototype._buildTable = function (data) {
 		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 		var table = document.createElement('table');
 		table.appendChild(document.createElement('thead'));

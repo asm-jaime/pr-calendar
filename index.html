@@ -18,7 +18,10 @@
 	</main>
 <script src="js/main.js"></script>	
 <script type="text/javascript">
-    var calendar = new Calendar(document.getElementById('container'));
+    var calendar = new Calendar(document.getElementById('container'),
+			{
+				date: new Date()
+			});
     calendar.render();
 </script>
 </body>

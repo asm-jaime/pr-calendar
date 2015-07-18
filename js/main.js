@@ -18,6 +18,7 @@
 	 *
 	 * @param {DOMElement} element - элемент, в котором будет рендериться
 	 *                               календарь
+     * @options - опции, задаваемые при создании календаря
 	 */
 	var Calendar = function (element, options) {
 		this.element = element;
@@ -38,8 +39,9 @@
 	 * 
 	 * @return {Object}
 	 */
-	Calendar.prototype.render = function (mode) {
-		var data = this._getMonthData(settings.currentDate, settings.firstDayOfTheWeek);
+	Calendar.prototype.render = function () {
+        var dateToRender = "date" in settings ? settings.date : settings.currentDate;
+		var data = this._getMonthData(dateToRender, settings.firstDayOfTheWeek);
 		var table = this._buildTable(data);
 		this.element.appendChild(table);
 	};
@@ -67,6 +69,10 @@
      	var used = firstMonthDay + (7 - counterDays(lastMonthDay)) + daysInMonth;
   		return Math.ceil(used / 7);
 	};
+
+    Calendar.prototype._nextMonth = function(){
+
+    };
 
 
 

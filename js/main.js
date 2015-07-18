@@ -38,9 +38,9 @@
 	 * @return {Object}
 	 */
 	Calendar.prototype.render = function (mode) {
-		this.element.appendChild(this._renderMonth(mode));
 		var data = this._getMonthData(settings.currentDate, settings.firstDayOfTheWeek);
-		this._buildTable(data);
+		var table = this._buildTable(data);
+		this.element.appendChild(table);
 	};
 
 	/**
@@ -174,51 +174,77 @@
 
 
 
-	/**
-	 * Строит таблицу по указанным данным
-	 *
-	 * @param  {Object} data
-	 * @return {DOMElement} - возвращает элемент с
-	 *                        таблицей
-	 *
-	 * @example
-	 * Пример данных в data:
-	 * [
-	 *   [
-	 *   	{ day: 29, isCurrentMonth: false, date: new Date('6-29-2015') },
-	 *   	{ day: 30, isCurrentMonth: false, date: new Date('6-30-2015') },
-	 *   	{ day: 1, isCurrentMonth: true, date: new Date('7-1-2015') },
-	 *   	...
-	 *   ],
-	 *   [
-	 *   	{ day: 6, isCurrentMonth: true, date: new Date('7-6-2015')}
-	 *   ]
-	 * ]
-	 */
 	Calendar.prototype._buildTable = function (data) {
-		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-		var table = document.createElement('table');
-		table.appendChild(document.createElement('thead'));
-		table.lastElementChild.appendChild(document.createElement('tr'));
-		var HeadTr = table.lastElementChild.lastElementChild;
-		
-		for (var j = 0; j < days.length; j++) {
-			HeadTr.appendChild(document.createElement('td'));
-			HeadTr.lastElementChild.appendChild(document.createTextNode(days[j]));
-		};
+		function createEl (tagName, className, text) {
+			var el = document.createElement(tagName);
+			el.className = className || '';
+			if (text) {
+				el.innerText = text;
+			}
+			return el;
+		}
 
-		for (var i = 0; i < data.length; i++) {
-			table.appendChild(document.createElement('tr'));
-			for (var j = 0; j < days.length; j++) {
-				var curTr = table.lastElementChild;
-				curTr.appendChild(document.createElement('td'));
-				curTr.lastElementChild.appendChild(document.createTextNode(data[i][j].day));
-				if (data[i][j].isCurrentMonth) {
-					curTr.lastElementChild.classList.add('days-current-month')
-				}
-			};
-		};
-		return table;
+		var container, calendarHeader, month;
+
+		container = createEl('div', 'calendar');
+		calendarHeader = createEl('div', 'calendar__header');
+		month = createEl('div', 'month');
+		container.appendChild(calendarHeader);
+		container.appendChild(month);
+
+		var monthHeader, monthGrid;
+		monthHeader = createEl('table', 'month__header');
+		monthGrid = createEl('div', 'month__grid');
+		month.appendChild(monthHeader);
+		month.appendChild(monthGrid);
+
+		for (var i = 0, weeks = data.length; i < weeks; i++) {
+			var row, bgTr, monthCnt, headTr, bodyTr; 
+			row = createEl('div', 'month__row');
+			bgTr = createEl('table', 'month__bg')
+				.appendChild(createEl('tbody'))
+				.appendChild(createEl('tr'));
+
+			monthCnt = createEl('table', 'month__cnt');
+
+			headTr = createEl('thead')
+				.appendChild(createEl('tr'));
+
+			bodyTr = createEl('tbody')
+				.appendChild(createEl('tr'));
+
+			row.appendChild(bgTr.parentNode.parentNode);
+			row.appendChild(monthCnt);
+			monthCnt.appendChild(headTr.parentNode);
+			monthCnt.appendChild(bodyTr.parentNode);
+
+			for (var x = 0, days = data.length; x < days; x++) {
+				var day = data[i][x];
+				// month__bg
+				var bgClass = day.isCurrentMonth 
+					? 'month__bg-cell'
+					: 'month__bg-cell month__bg-cell_type_off';
+				bgTr.appendChild(createEl('td', bgClass));
+
+				// thead
+				var aClass = day.isCurrentMonth
+					? 'month__cnt-day'
+					: 'month__cnt-day month__cnt-day_type_off';
+				var a = createEl('th', 'month__cnt-title')
+					.appendChild(createEl('a', aClass, day.day));
+
+				headTr.appendChild(a.parentNode);
+
+				// tbody
+				bodyTr.appendChild(createEl('td', 'month__cnt-item'));
+			}
+
+			monthGrid.appendChild(row);
+
+		}
+
+		return container;
+
 	};
 
 	window.Calendar = Calendar;

@@ -7,7 +7,7 @@
 		minDate: new Date('1-1-1960'),
 		maxDate: new Date('1-1-2060'),
 		firstDayOfTheWeek: 1,
-		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
 		currentDate: new Date()
 	};
 

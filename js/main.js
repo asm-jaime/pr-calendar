@@ -7,6 +7,7 @@
 		minDate: new Date('1-1-1960'),
 		maxDate: new Date('1-1-2060'),
 		firstDayOfTheWeek: 1,
+		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
 		currentDate: new Date()
 	};
 
@@ -192,11 +193,28 @@
 		container.appendChild(calendarHeader);
 		container.appendChild(month);
 
-		var monthHeader, monthGrid;
-		monthHeader = createEl('table', 'month__header');
+		var monthHeaderTr, monthGrid;
+		monthHeaderTr = createEl('table', 'month__header')
+			.appendChild(createEl('tbody'))
+			.appendChild(createEl('tr'));
 		monthGrid = createEl('div', 'month__grid');
-		month.appendChild(monthHeader);
+
+		month.appendChild(monthHeaderTr.parentNode.parentNode);
 		month.appendChild(monthGrid);
+
+		var dayNames;
+		if (settings.firstDayOfTheWeek === 0) {
+			dayNames = settings.dayNames.slice();
+		} else {
+			dayNames = settings.dayNames.slice(1);
+			dayNames.push(settings.dayNames[settings.dayNames.length - 1]);
+		}
+
+		console.log(dayNames);
+
+		for (var n = 0; n < dayNames.length; n++) {
+			monthHeaderTr.appendChild(createEl('th', 'month__dayname', dayNames[n]));
+		}
 
 		for (var i = 0, weeks = data.length; i < weeks; i++) {
 			var row, bgTr, monthCnt, headTr, bodyTr; 

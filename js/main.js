@@ -1,7 +1,7 @@
 
 
 
-;(function (window){
+(function (window) {
 
 	var defaults = {
 		minDate: new Date('1-1-1960'),
@@ -27,57 +27,44 @@
 	 * @return {Object}
 	 */
 	Calendar.prototype.render = function (mode) {
-		// Метод должен вставлять в this.element
-		// код таблицы в которой число строк равно
-		// числу недель в месяце, а число столбцов
-		// равно числу дней в неделе.
-		this.element.appendChild(renderMonth(mode));
+		this.element.appendChild(this._renderMonth(mode));
+	};
+
+	/**
+	 * Возвращает число недель в месяце
+	 * 
+	 * @param  {Date} date
+	 * @param  {0|1} firstDayOfTheWeek - первый день недели (0 - ВС, 1 - ПН)
+	 * @return {Number} - число дней в месяце
+	 */
+	Calendar.prototype._getWeeksInMonth = function (date, firstDayOfTheWeek) {
+		if (firstDayOfTheWeek != 0 && firstDayOfTheWeek != 1)
+			throw new Error("Incorrect firstDayOfTheWeek");
 	};
 
 
-	/**
-	 * Строит таблицу по указанным данным
-	 *
-	 * @param  {Object} date
-	 * @return {DOMElement} - таблица
-	 */
-	/**
-	 * Функция возвращает словарь, хранящий информацию о дне.
-	 * @param _day
-	 * @param _isCurrentMonth
-	 * @param _date
-	 * @returns {{day: *, isCurrentMonth: *, date: *}}
-	 */
-	function addDay(_day, _isCurrentMonth, _date){
-		return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
-	}
 
-	/**
-	 *
-	 * @param date
-	 * @returns {number}
-	 */
-	function dayNumber(date) {
-		var day = date.getDay();
-		if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
-		return day - 1;
-	}
-
-	/**
-	 * Возвращает неделю предыдущего месяца
-	 * @param date
-	 * @returns {Array}
-	 */
-	function getLastWeekPrevMonth(date){
-		var _d = new Date(date.getFullYear(), date.getMonth(), 0);
-		var lastWeek = [];
-		for(var i = dayNumber(_d); i == dayNumber(_d); i--){
-			lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
-			_d.setDate(_d.getDate() - 1);
+	Calendar.prototype._getMonthData = function (date, firstDayOfTheWeek) {
+		function addDay(_day, _isCurrentMonth, _date){
+			return {day: _day, isCurrentMonth: _isCurrentMonth, date: _date};
+		}
+		function dayNumber(date) {
+			var day = date.getDay();
+			if (day == 0) day = 7; //1, 2, 3, 4, 5, 6, 7
+			return day - 1;
+		}
+		function getLastWeekPrevMonth(date){
+			var _d = new Date(date.getFullYear(), date.getMonth(), 0);
+			var lastWeek = [];
+			for(var i = dayNumber(_d); i == dayNumber(_d); i--){
+				lastWeek.push(addDay(_d.getDate(), false, new Date(_d.getFullYear(), _d.getMonth(), _d.getDate())));
+				_d.setDate(_d.getDate() - 1);
+			}
+			return lastWeek;
 		}
 
 		return lastWeek;
-	}
+	};
 
 	/**
 	 * Возвращает неделю следующего месяца
@@ -135,7 +122,7 @@
 
 
 		return buildTable(results);
-	}
+	};
 
 
 
@@ -160,7 +147,7 @@
 	 *   ]
 	 * ]
 	 */
-	function buildTable (data) {
+	Calendar.prototype._buildTable = function (data) {
 		var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 		var table = document.createElement('table');
 		table.appendChild(document.createElement('thead'));
@@ -187,8 +174,9 @@
 	};
 
 	window.Calendar = Calendar;
+	
+	if (typeof exports != 'undefined') {
+		exports.Calendar = Calendar;
+	}
 
-})(window);
-
-var newCalendar = new Calendar(document.querySelector('.container'));
-newCalendar.render(new Date);
+})(this);

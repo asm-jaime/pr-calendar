@@ -1,8 +1,3 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
 .pr-button {
     font-family: inherit;
     font-size: 14px;
@@ -83,7 +78,13 @@
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 14px;
 
+    box-sizing: border-box;
     margin: 20px 0 0;
+}
+.pr-calendar *,
+.pr-calendar *:before,
+.pr-calendar *:after {
+    box-sizing: inherit;
 }
 .pr-calendar__header {
     padding: 0 0 20px;

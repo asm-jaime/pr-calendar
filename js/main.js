@@ -105,7 +105,7 @@
             for (var x = 0; x < 7; x++) {
                 week.push({
                     day: currentDate.getDate(),
-                    isCurrentMonth: true ? currentDate.getMonth()==initMonth : false,
+                    isCurrentMonth: currentDate.getMonth()==initMonth,
                     date: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate())
                 });
                 currentDate.setDate(currentDate.getDate() + 1);

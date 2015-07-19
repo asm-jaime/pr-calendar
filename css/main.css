@@ -168,7 +168,7 @@
 
     border-top: 1px solid #ddd;
 }
-.pr-month__row:first-child .pr-month__header-cell {
+.pr-month__grid-row:first-child .pr-month__header-cell {
     border-top: 0;
 }
 .pr-month__data-cell {

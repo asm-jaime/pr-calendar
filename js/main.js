@@ -10,6 +10,11 @@
 		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
 		currentDate: new Date(),
         classes: {
+        	calendar: 'pr-calendar',
+        	calendarHeader: 'pr-calendar__header',
+        	month: 'pr-month',
+        	monthHeader: 'pr-month__header',
+        	monthGrid: 'pr-month__grid',
             dayName: 'pr-month__day-name',
             gridRow: 'pr-month__grid-row',
             background: 'pr-month__background',
@@ -170,17 +175,17 @@
 
 		var container, calendarHeader, month;
 
-		container = createEl('div', 'calendar');
-		calendarHeader = createEl('div', 'calendar__header');
-		month = createEl('div', 'month');
+		container = createEl('div', settings.classes.calendar);
+		calendarHeader = createEl('div', settings.classes.calendarHeader);
+		month = createEl('div', settings.classes.month);
 		container.appendChild(calendarHeader);
 		container.appendChild(month);
 
 		var monthHeaderTr, monthGrid;
-		monthHeaderTr = createEl('table', 'month__header')
+		monthHeaderTr = createEl('table', settings.classes.monthHeader)
 			.appendChild(createEl('tbody'))
 			.appendChild(createEl('tr'));
-		monthGrid = createEl('div', 'month__grid');
+		monthGrid = createEl('div', settings.classes.monthGrid);
 
 		month.appendChild(monthHeaderTr.parentNode.parentNode);
 		month.appendChild(monthGrid);

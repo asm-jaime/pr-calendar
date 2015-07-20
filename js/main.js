@@ -19,7 +19,7 @@
             gridRow: 'pr-month__grid-row',
             background: 'pr-month__background',
             cell: 'pr-month__cell',
-            cellTypeOf: 'pr-month__cell_type_of',
+            cellTypeOf: 'pr-month__cell_type_off',
             content: 'pr-month__content',
             headerCell: 'pr-month__header-cell',
             day: 'pr-month__day',

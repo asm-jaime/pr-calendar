@@ -217,7 +217,7 @@
 			monthCnt.appendChild(headTr.parentNode);
 			monthCnt.appendChild(bodyTr.parentNode);
 
-			for (var x = 0, days = data.length; x < days; x++) {
+			for (var x = 0, days = dayNames.length; x < days; x++) {
 				var day = data[i][x];
 				// month__bg
 				var bgClass = day.isCurrentMonth 

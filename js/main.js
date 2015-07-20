@@ -8,9 +8,16 @@
 		maxDate: new Date('1-1-2060'),
 		firstDayOfTheWeek: 1,
 		dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+		monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август',
+		 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
 		currentDate: new Date(),
         classes: {
         	calendar: 'pr-calendar',
+        	navigation: 'pr-calendar__nav',
+        	button: 'pr-button',
+        	buttonText: 'pr-button__text',
+        	disabledButton: 'pr-button_disabled',
+        	title: 'pr-calendar__title',
         	calendarHeader: 'pr-calendar__header',
         	month: 'pr-month',
         	monthHeader: 'pr-month__header',
@@ -180,6 +187,23 @@
 		month = createEl('div', settings.classes.month);
 		container.appendChild(calendarHeader);
 		container.appendChild(month);
+
+		var navigation, prevButton, nextButton, title, todayButton;
+		navigation = createEl('div', settings.classes.navigation);
+		calendarHeader.appendChild(navigation);
+		todayButton = navigation
+			.appendChild(createEl('button', settings.classes.button + ' ' + settings.classes.disabledButton))
+			.appendChild(createEl('span', settings.classes.buttonText, "Сегодня"));
+		prevButton = navigation
+			.appendChild(createEl('button', settings.classes.button))
+			.appendChild(createEl('span', settings.classes.buttonText, "←"));
+		nextButton = navigation
+			.appendChild(createEl('button', settings.classes.button))
+			.appendChild(createEl('span', settings.classes.buttonText, "→"));
+		title = navigation
+			.appendChild(createEl('div', settings.classes.title))
+			.appendChild(document.createTextNode(
+			settings.monthNames[data[2][0].date.getMonth()] + ' ' + data[0][0].date.getFullYear()));
 
 		var monthHeaderTr, monthGrid;
 		monthHeaderTr = createEl('table', settings.classes.monthHeader)

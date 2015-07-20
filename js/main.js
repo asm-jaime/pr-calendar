@@ -42,6 +42,8 @@
 			settings[key] = options[key];
 		}
 
+		console.log(settings);
+
 		return this;
 	};
 
@@ -191,20 +193,18 @@
 			dayNames.push(settings.dayNames[0]);
 		}
 
-		console.log(dayNames);
-
 		for (var n = 0; n < dayNames.length; n++) {
-			monthHeaderTr.appendChild(createEl('th', 'month__dayname', dayNames[n]));
+			monthHeaderTr.appendChild(createEl('th', settings.classes.dayName, dayNames[n]));
 		}
 
 		for (var i = 0, weeks = data.length; i < weeks; i++) {
 			var row, bgTr, monthCnt, headTr, bodyTr; 
-			row = createEl('div', 'month__row');
-			bgTr = createEl('table', 'month__bg')
+			row = createEl('div', settings.classes.gridRow);
+			bgTr = createEl('table', settings.classes.background)
 				.appendChild(createEl('tbody'))
 				.appendChild(createEl('tr'));
 
-			monthCnt = createEl('table', 'month__cnt');
+			monthCnt = createEl('table', settings.classes.content);
 
 			headTr = createEl('thead')
 				.appendChild(createEl('tr'));
@@ -221,21 +221,21 @@
 				var day = data[i][x];
 				// month__bg
 				var bgClass = day.isCurrentMonth 
-					? 'month__bg-cell'
-					: 'month__bg-cell month__bg-cell_type_off';
+					? settings.classes.cell
+					: settings.classes.cell + " " + settings.classes.cellTypeOf;
 				bgTr.appendChild(createEl('td', bgClass));
 
 				// thead
 				var aClass = day.isCurrentMonth
-					? 'month__cnt-day'
-					: 'month__cnt-day month__cnt-day_type_off';
-				var a = createEl('th', 'month__cnt-title')
+					? settings.classes.day
+					: settings.classes.day + " " + settings.classes.dayTypeOf;
+				var a = createEl('th', settings.classes.headerCell)
 					.appendChild(createEl('a', aClass, day.day));
 
 				headTr.appendChild(a.parentNode);
 
 				// tbody
-				bodyTr.appendChild(createEl('td', 'month__cnt-item'));
+				bodyTr.appendChild(createEl('td', settings.classes.dataCell));
 			}
 
 			monthGrid.appendChild(row);

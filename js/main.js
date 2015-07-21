@@ -207,8 +207,13 @@
 		var navigation, prevButton, nextButton, title, todayButton;
 		navigation = createEl('div', settings.classes.navigation);
 		calendarHeader.appendChild(navigation);
+
+		var todayButtonClass = today.getMonth() == data[1][0].date.getMonth()
+			? settings.classes.button + ' ' + settings.classes.disabledButton 
+			: settings.classes.button;
+
 		todayButton = navigation
-			.appendChild(createEl('button', settings.classes.button + ' ' + settings.classes.disabledButton))
+			.appendChild(createEl('button', todayButtonClass)) 
 			.appendChild(createEl('span', settings.classes.buttonText, "Сегодня"));
 		todayButton.classList.add('today-button');
 		prevButton = navigation

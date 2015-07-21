@@ -190,7 +190,7 @@
 			var el = document.createElement(tagName);
 			el.className = className || '';
 			if (text) {
-				el.innerText = text;
+				el.innerHTML = text;
 			}
 			return el;
 		}
@@ -287,7 +287,7 @@
                     aClass += " " + settings.classes.dayTypeToday;
                 }
 				var a = createEl('th', settings.classes.headerCell)
-					.appendChild(createEl('a', aClass, day.day));
+				.appendChild(createEl('a', aClass, day.day));
 
 				headTr.appendChild(a.parentNode);
 

@@ -54,8 +54,6 @@
 			settings[key] = options[key];
 		}
 
-		console.log(settings);
-
 		return this;
 	};
 

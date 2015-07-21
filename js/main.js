@@ -208,7 +208,8 @@
 		navigation = createEl('div', settings.classes.navigation);
 		calendarHeader.appendChild(navigation);
 
-		var todayButtonClass = today.getMonth() == data[1][0].date.getMonth()
+		var todayButtonClass = (today.getMonth() == data[1][0].date.getMonth() &&
+			today.getFullYear() == data[1][0].date.getFullYear())
 			? settings.classes.button + ' ' + settings.classes.disabledButton 
 			: settings.classes.button;
 

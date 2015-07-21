@@ -54,6 +54,19 @@
 		for (key in options) {
 			settings[key] = options[key];
 		}
+		var thisCalendar = this;
+		this.element.addEventListener('click', function(event) {
+			if(event.target.classList.contains('prev-button')) {
+				thisCalendar.prev(); return;
+			};
+			if(event.target.classList.contains('next-button')) {
+				thisCalendar.next(); return;
+			};
+			if(event.target.classList.contains('today-button')) {
+				settings.currentDate = new Date();
+				thisCalendar.render(); return;
+			};
+		});
 
 		return this;
 	};
@@ -71,7 +84,6 @@
         while (this.element.lastChild) {
             this.element.removeChild(this.element.lastChild);
         }
-
 		this.element.appendChild(table);
 	};
 
@@ -198,12 +210,15 @@
 		todayButton = navigation
 			.appendChild(createEl('button', settings.classes.button + ' ' + settings.classes.disabledButton))
 			.appendChild(createEl('span', settings.classes.buttonText, "Сегодня"));
+		todayButton.classList.add('today-button');
 		prevButton = navigation
 			.appendChild(createEl('button', settings.classes.button))
 			.appendChild(createEl('span', settings.classes.buttonText, "←"));
+		prevButton.classList.add('prev-button');
 		nextButton = navigation
 			.appendChild(createEl('button', settings.classes.button))
 			.appendChild(createEl('span', settings.classes.buttonText, "→"));
+		nextButton.classList.add('next-button');
 		title = navigation
 			.appendChild(createEl('div', settings.classes.title))
 			.appendChild(document.createTextNode(

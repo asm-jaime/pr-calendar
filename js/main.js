@@ -27,11 +27,11 @@
             gridRow: 'pr-month__grid-row',
             background: 'pr-month__background',
             cell: 'pr-month__cell',
-            cellTypeOf: 'pr-month__cell_type_off',
+            cellTypeOff: 'pr-month__cell_type_off',
             content: 'pr-month__content',
             headerCell: 'pr-month__header-cell',
             day: 'pr-month__day',
-            dayTypeOf: 'pr-month__day_type_off',
+            dayTypeOff: 'pr-month__day_type_off',
             dataCell: 'pr-month__data-cell'
         }
 	};
@@ -255,13 +255,13 @@
 				// month__bg
 				var bgClass = day.isCurrentMonth 
 					? settings.classes.cell
-					: settings.classes.cell + " " + settings.classes.cellTypeOf;
+					: settings.classes.cell + " " + settings.classes.cellTypeOff;
 				bgTr.appendChild(createEl('td', bgClass));
 
 				// thead
 				var aClass = day.isCurrentMonth
 					? settings.classes.day
-					: settings.classes.day + " " + settings.classes.dayTypeOf;
+					: settings.classes.day + " " + settings.classes.dayTypeOff;
                 if (day.date.toDateString() == today.toDateString()) {
                     aClass += " " + settings.classes.dayTypeToday;
                 }

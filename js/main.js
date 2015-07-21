@@ -67,6 +67,10 @@
 		var data = this._getMonthData(settings.currentDate, settings.firstDayOfTheWeek);
         this.element.innerHtml = '';
 		var table = this._buildTable(data);
+        while (this.element.lastChild) {
+            this.element.removeChild(this.element.lastChild);
+        }
+
 		this.element.appendChild(table);
 	};
 
@@ -94,12 +98,12 @@
   		return Math.ceil(used / 7);
 	};
 
-    Calendar.prototype._next = function(){
+    Calendar.prototype.next = function(){
         settings.currentDate.setMonth(settings.currentDate.getMonth() + 1);
         this.render();
     };
 
-    Calendar.prototype._prev = function(){
+    Calendar.prototype.prev = function(){
         settings.currentDate.setMonth(settings.currentDate.getMonth() - 1);
         this.render();
     };

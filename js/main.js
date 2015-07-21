@@ -303,6 +303,25 @@
 
 	};
 
+	/**
+	 * Таски
+	 * @param start - время начала действия таска
+	 * @param end - время истечения работы таска
+	 * @param taskText - текст
+	 * @param typeOfCallback - тип оповощения
+	 * @param status - статус таска(Новый, Выполненный, Отложенный и так далее).
+	 * @constructor
+	 */
+	var Task = function(start, end, taskText, status, typeOfCallback){
+		this.startDate = start;
+		this.endDate = end;
+		this.text = taskText;
+		//this.status = ...
+		this.typeOfCallback = typeOfCallback;
+	};
+
+
+
 	window.Calendar = Calendar;
 	
 	if (typeof exports != 'undefined') {
@@ -312,3 +331,4 @@
 	}
 
 })(this);
+

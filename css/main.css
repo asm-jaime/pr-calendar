@@ -74,6 +74,9 @@
     vertical-align: top;
     text-overflow: ellipsis;
 }
+.pr-calendar__nav .pr-button {
+    margin: 0 2px;
+}
 .pr-calendar {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-size: 14px;
@@ -98,13 +101,13 @@
     vertical-align: top;
 }
 .pr-calendar__nav {
-    margin: 0 20px 0 0;
+    margin: 0 20px 0 -2px;
 }
 .pr-calendar__title {
     font-size: 1.28571429em;
     font-weight: bold;
 
-    margin: 5px 0 0;
+    margin: 5px 2px 0;
 }
 .pr-month {
     font-size: 14px;

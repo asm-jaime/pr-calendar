@@ -23,6 +23,7 @@
         	monthHeader: 'pr-month__header',
         	monthGrid: 'pr-month__grid',
             dayName: 'pr-month__day-name',
+            dayTypeToday: 'pr-month__day_type_today',
             gridRow: 'pr-month__grid-row',
             background: 'pr-month__background',
             cell: 'pr-month__cell',
@@ -182,6 +183,7 @@
 			return el;
 		}
 
+        var today = new Date();
 		var container, calendarHeader, month;
 
 		container = createEl('div', settings.classes.calendar);
@@ -260,6 +262,9 @@
 				var aClass = day.isCurrentMonth
 					? settings.classes.day
 					: settings.classes.day + " " + settings.classes.dayTypeOf;
+                if (day.date.toDateString() == today.toDateString()) {
+                    aClass += " " + settings.classes.dayTypeToday;
+                }
 				var a = createEl('th', settings.classes.headerCell)
 					.appendChild(createEl('a', aClass, day.day));
 

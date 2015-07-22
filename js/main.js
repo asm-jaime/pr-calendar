@@ -55,25 +55,29 @@
         }
         var thisCalendar = this;
         this.element.addEventListener('click', function(event) {
-            if(event.target.classList.contains('prev-button')) {
+            event = event || window.event;
+            var target = event.target || event.srcElement;
+            console.log(target, "   ", target.classList, "    ", target.classList.contains(settings.classes.day));
+            if(target.classList.contains('prev-button')) {
                 thisCalendar.prev(); return;
-            };
-            if(event.target.classList.contains('next-button')) {
+            }
+            if(target.classList.contains('next-button')) {
                 thisCalendar.next(); return;
-            };
-            if(event.target.classList.contains('today-button')) {
+            }
+            if(target.classList.contains('today-button')) {
                 settings.currentDate = new Date();
                 thisCalendar.render(); return;
-            };
-            if(event.target.classList.contains(settings.classes.day)) {
+            }
+            if(target.classList.contains(settings.classes.day)) {
                 if(!document.getElementById('day_'+event.target.dataset.date)){
                     var popup = document.createElement('div');
-                    changeText(popup, 'Ваши заметки на день ' + event.target.dataset.date);
+                    popup.textContent = "test";
                     popup.style.position = 'absolute';
                     popup.style.top = event.clientY + 'px';
                     popup.style.left = event.clientX + 'px';
                     popup.id = 'day_' + event.target.dataset.date;
                     document.body.appendChild(popup);
+                    changeText(popup, 'Ваши заметки на день ' + event.target.dataset.date);
                 }
             }
         });
@@ -179,9 +183,10 @@
     }
 
     function changeText(elem, changeVal) {
-        if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
+        if (elem.textContent && (typeof (elem.textContent) != "undefined")) {
             elem.textContent = changeVal;
         } else {
+            console.log('inner');
             elem.innerText = changeVal;
         }
     }
@@ -220,14 +225,17 @@
             .appendChild(createEl('button', todayButtonClass))
             .appendChild(createEl('span', settings.classes.buttonText, "Сегодня"));
         todayButton.classList.add('today-button');
+        todayButton.parentNode.classList.add('today-button');
         prevButton = navigation
             .appendChild(createEl('button', settings.classes.button))
             .appendChild(createEl('span', settings.classes.buttonText, "←"));
         prevButton.classList.add('prev-button');
+        prevButton.parentNode.classList.add('prev-button');
         nextButton = navigation
             .appendChild(createEl('button', settings.classes.button))
             .appendChild(createEl('span', settings.classes.buttonText, "→"));
         nextButton.classList.add('next-button');
+        nextButton.parentNode.classList.add('next-button');
         title = navigation
             .appendChild(createEl('div', settings.classes.title))
             .appendChild(document.createTextNode(settings.monthNames[data[2][0].date.getMonth()] + ' ' + data[0][0].date.getFullYear()));

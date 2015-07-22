@@ -194,6 +194,13 @@
 			}
 			return el;
 		}
+        function changeText(elem, changeVal) {
+            if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
+                elem.textContent = changeVal;
+            } else {
+                elem.innerText = changeVal;
+            }
+        }
 
         var today = new Date();
 		var container, calendarHeader, month;
@@ -286,8 +293,23 @@
                 if (day.date.toDateString() == today.toDateString()) {
                     aClass += " " + settings.classes.dayTypeToday;
                 }
+
 				var a = createEl('th', settings.classes.headerCell)
 				.appendChild(createEl('a', aClass, day.day));
+
+                a.onclick = function(day){
+                    return function(e){
+                        if(!document.getElementById('day_'+day)){
+                            var popup = createEl('div');
+                            changeText(popup, 'Ваши заметки на день ' + day);
+                            popup.style.position = 'absolute';
+                            popup.style.top = e.clientY + 'px';
+                            popup.style.left = e.clientX + 'px';
+                            popup.id = 'day_' + day;
+                            document.body.appendChild(popup);
+                        }
+                    }
+                }(day.day);
 
 				headTr.appendChild(a.parentNode);
 

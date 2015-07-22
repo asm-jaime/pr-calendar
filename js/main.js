@@ -57,7 +57,6 @@
         this.element.addEventListener('click', function(event) {
             event = event || window.event;
             var target = event.target || event.srcElement;
-            console.log(target, "   ", target.classList, "    ", target.classList.contains(settings.classes.day));
             if(target.classList.contains('prev-button')) {
                 thisCalendar.prev(); return;
             }
@@ -71,7 +70,7 @@
             if(target.classList.contains(settings.classes.day)) {
                 if(!document.getElementById('day_'+event.target.dataset.date)){
                     var popup = document.createElement('div');
-                    popup.textContent = "test";
+                    popup.textContent = "";//fix
                     popup.style.position = 'absolute';
                     popup.style.top = event.clientY + 'px';
                     popup.style.left = event.clientX + 'px';
@@ -186,7 +185,6 @@
         if (elem.textContent && (typeof (elem.textContent) != "undefined")) {
             elem.textContent = changeVal;
         } else {
-            console.log('inner');
             elem.innerText = changeVal;
         }
     }

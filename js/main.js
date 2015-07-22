@@ -65,6 +65,17 @@
                 settings.currentDate = new Date();
                 thisCalendar.render(); return;
             };
+            if(event.target.classList.contains(settings.classes.day)) {
+                if(!document.getElementById('day_'+event.target.dataset.date)){
+                    var popup = document.createElement('div');
+                    changeText(popup, 'Ваши заметки на день ' + event.target.dataset.date);
+                    popup.style.position = 'absolute';
+                    popup.style.top = event.clientY + 'px';
+                    popup.style.left = event.clientX + 'px';
+                    popup.id = 'day_' + event.target.dataset.date;
+                    document.body.appendChild(popup);
+                }
+            }
         });
 
         return this;
@@ -167,6 +178,13 @@
         return lastWeek;
     }
 
+    function changeText(elem, changeVal) {
+        if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
+            elem.textContent = changeVal;
+        } else {
+            elem.innerText = changeVal;
+        }
+    }
 
 
 
@@ -178,13 +196,6 @@
             el.innerHTML = text;
             }
             return el;
-        }
-        function changeText(elem, changeVal) {
-            if ((elem.textContent) && (typeof (elem.textContent) != "undefined")) {
-                elem.textContent = changeVal;
-            } else {
-                elem.innerText = changeVal;
-            }
         }
 
         var today = new Date();
@@ -281,20 +292,7 @@
                 var a = createEl('th', settings.classes.headerCell)
                     .appendChild(createEl('a', aClass, day.day));
 
-                    a.onclick = function(day){
-                        return function(e){
-                            if(!document.getElementById('day_'+day)){
-                                var popup = createEl('div');
-                                changeText(popup, 'Ваши заметки на день ' + day);
-                                popup.style.position = 'absolute';
-                                popup.style.top = e.clientY + 'px';
-                                popup.style.left = e.clientX + 'px';
-                                popup.id = 'day_' + day;
-                                document.body.appendChild(popup);
-                            }
-                        }
-                    }(day.day);
-
+                a.setAttribute('data-date', day.day);
                 headTr.appendChild(a.parentNode);
 
                 // tbody

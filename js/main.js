@@ -70,13 +70,12 @@
             if(target.classList.contains(settings.classes.day)) {
                 if(!document.getElementById('day_'+event.target.dataset.date)){
                     var popup = document.createElement('div');
-                    popup.textContent = "";//fix
+                    popup.textContent = 'Ваши заметки на день ' + event.target.dataset.date; //ie9- doesn't work
                     popup.style.position = 'absolute';
                     popup.style.top = event.clientY + 'px';
                     popup.style.left = event.clientX + 'px';
                     popup.id = 'day_' + event.target.dataset.date;
                     document.body.appendChild(popup);
-                    changeText(popup, 'Ваши заметки на день ' + event.target.dataset.date);
                 }
             }
         });

@@ -3,37 +3,37 @@
 
 (function (window) {
 
-  var defaults = {
-    minDate: new Date('1-1-1960'),
-    maxDate: new Date('1-1-2060'),
-    firstDayOfTheWeek: 1,
-    dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
-    monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-    currentDate: new Date(),
-    classes: {
-        calendar: 'pr-calendar',
-        navigation: 'pr-calendar__nav',
-        button: 'pr-button',
-        buttonText: 'pr-button__text',
-        disabledButton: 'pr-button_disabled',
-        title: 'pr-calendar__title',
-        calendarHeader: 'pr-calendar__header',
-        month: 'pr-month',
-        monthHeader: 'pr-month__header',
-        monthGrid: 'pr-month__grid',
-        dayName: 'pr-month__day-name',
-        dayTypeToday: 'pr-month__day_type_today',
-        gridRow: 'pr-month__grid-row',
-        background: 'pr-month__background',
-        cell: 'pr-month__cell',
-        cellTypeOff: 'pr-month__cell_type_off',
-        content: 'pr-month__content',
-        headerCell: 'pr-month__header-cell',
-        day: 'pr-month__day',
-        dayTypeOff: 'pr-month__day_type_off',
-        dataCell: 'pr-month__data-cell'
-    }
-  };
+    var defaults = {
+        minDate: new Date('1-1-1960'),
+        maxDate: new Date('1-1-2060'),
+        firstDayOfTheWeek: 1,
+        dayNames: ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'],
+        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        currentDate: new Date(),
+        classes: {
+            calendar: 'pr-calendar',
+            navigation: 'pr-calendar__nav',
+            button: 'pr-button',
+            buttonText: 'pr-button__text',
+            disabledButton: 'pr-button_disabled',
+            title: 'pr-calendar__title',
+            calendarHeader: 'pr-calendar__header',
+            month: 'pr-month',
+            monthHeader: 'pr-month__header',
+            monthGrid: 'pr-month__grid',
+            dayName: 'pr-month__day-name',
+            dayTypeToday: 'pr-month__day_type_today',
+            gridRow: 'pr-month__grid-row',
+            background: 'pr-month__background',
+            cell: 'pr-month__cell',
+            cellTypeOff: 'pr-month__cell_type_off',
+            content: 'pr-month__content',
+            headerCell: 'pr-month__header-cell',
+            day: 'pr-month__day',
+            dayTypeOff: 'pr-month__day_type_off',
+            dataCell: 'pr-month__data-cell'
+        }
+    };
 
     var settings = {};
 

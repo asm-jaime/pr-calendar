@@ -37,13 +37,16 @@
 
     var settings = {};
 
+    var tasks = [];
+
+
     /**
-    * @constructor
-    *
-    * @param {DOMElement} element - элемент, в котором будет рендериться
-    *                               календарь
+     * @constructor
+     *
+     * @param {DOMElement} element - элемент, в котором будет рендериться
+     *
      * @options - опции, задаваемые при создании календаря
-    */
+     */
     var Calendar = function (element, options) {
         this.element = element;
         for (var key in defaults) {
@@ -163,6 +166,39 @@
             result.push(week);
         }
         return result;
+    };
+
+
+    /**
+     * TASKS
+     */
+
+    Calendar.prototype.getTasks = function () {
+        return tasks;
+    };
+
+    /**
+     * Добавляет таск в список tasks
+     *
+     * @param {Object} task
+     * @param {Date} task.startDate - дата начала задачи
+     * @param {Date} task.endDate - дата конца задачи
+     * @param {Number} task.priority - приоритет задачи
+     * @param {String} task.name - title of the task
+     */
+    Calendar.prototype.addTask = function (task) {
+        tasks.push(task);
+        return tasks;
+    };
+
+
+    Calendar.prototype.removeTask = function (task) {
+        for (var i = 0, length = tasks.length; i < length; i++) {
+            if (task === tasks[i]) {
+                tasks.splice(i, 1);
+                return tasks;
+            }
+        }
     };
 
     /**
